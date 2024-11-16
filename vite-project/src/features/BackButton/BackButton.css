@@ -1,0 +1,8 @@
+.back-button {
+    border: none;
+    background: transparent;
+    background-color: rgb(76, 76, 244);
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
