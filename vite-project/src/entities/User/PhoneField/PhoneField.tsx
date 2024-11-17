@@ -1,5 +1,5 @@
 import React from 'react';
-import './PhoneField.css';
+import '../InputField/InputField.css';
 
 interface PhoneFieldProps {
   value: string;
@@ -22,7 +22,7 @@ const PhoneField: React.FC<PhoneFieldProps> = ({ value, onChange, error, label }
       <input
         className={`phone-field-input ${error ? 'phone-field-input-error' : ''}`}
         type="tel"
-        value={`+${value}`} // Автоматически добавляем +
+        value={` + ${value}`} // Автоматически добавляем +
         onChange={handleChange}
         placeholder="Введите номер телефона"
       />

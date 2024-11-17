@@ -93,5 +93,6 @@ export const EditProfilePage: React.FC = () => {
         Сохранить
       </button>
     </div>
+    
   );
 };

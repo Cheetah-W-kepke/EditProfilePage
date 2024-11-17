@@ -31,10 +31,18 @@ export const AvatarUploader: React.FC<AvatarUploaderProps> = ({ onUpload }) => {
         {avatarPreview ? (
           <img src={avatarPreview} alt="Avatar Preview" />
         ) : (
-          <span></span>
+          <div className="avatar-placeholder" />
         )}
       </div>
-      <input type="file" accept="image/*" onChange={handleFileChange} />
+      <span className="upload-text" onClick={() => document.querySelector<HTMLInputElement>('.hidden-file-input')?.click()}>
+        Загрузить аватар
+      </span>
+      <input
+        type="file"
+        accept="image/*"
+        onChange={handleFileChange}
+        className="hidden-file-input"
+      />
     </div>
   );
 };
