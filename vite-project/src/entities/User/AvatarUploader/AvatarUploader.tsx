@@ -31,7 +31,7 @@ export const AvatarUploader: React.FC<AvatarUploaderProps> = ({ onUpload }) => {
         {avatarPreview ? (
           <img src={avatarPreview} alt="Avatar Preview" />
         ) : (
-          <span>Загрузить аватар</span>
+          <span></span>
         )}
       </div>
       <input type="file" accept="image/*" onChange={handleFileChange} />
