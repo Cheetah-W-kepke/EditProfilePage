@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './AvatarUploader.css';
 
 interface AvatarUploaderProps {
   onUpload: (file: File | null) => void; // Функция, вызываемая при загрузке нового аватара
@@ -37,4 +38,3 @@ export const AvatarUploader: React.FC<AvatarUploaderProps> = ({ onUpload }) => {
     </div>
   );
 };
-
