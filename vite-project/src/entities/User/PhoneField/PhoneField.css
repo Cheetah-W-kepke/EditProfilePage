@@ -1,13 +1,18 @@
 .phone-field {
     display: flex;
     flex-direction: column;
+    font-size: 14 px;
+    font-weight: 500;
+    color: #766f6f;
     margin-bottom: 16px;
+
   }
   
+
   .phone-field-label {
-    font-size: 14px;
+    font-size: 14 px;
     font-weight: 500;
-    color: #333;
+    color: #000000;
     margin-bottom: 4px;
   }
   

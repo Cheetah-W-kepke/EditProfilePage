@@ -8,7 +8,7 @@ interface BackButtonProps {
   export const BackButton: React.FC<BackButtonProps> = ({ onClick }) => {
     return (
       <button onClick={onClick} className="back-button">
-        ← Назад
+        ← 
       </button>
     );
   };

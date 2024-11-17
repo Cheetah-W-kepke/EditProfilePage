@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { BackButton } from '../../features/BackButton/BackButton';
 import { AvatarUploader } from '../../entities/User/AvatarUploader/AvatarUploader';
 import { InputField } from '../../entities/User/InputField/InputField';
-import  PhoneField  from '../../entities/User/PhoneField/PhoneField';
+import PhoneField from '../../entities/User/PhoneField/PhoneField';
+import './EditProfilePage.css';
 
 interface ProfileState {
   firstName: string;
@@ -11,7 +12,6 @@ interface ProfileState {
 }
 
 export const EditProfilePage: React.FC = () => {
-  // Состояние профиля пользователя
   const [profile, setProfile] = useState<ProfileState>({
     firstName: '',
     lastName: '',
@@ -20,7 +20,6 @@ export const EditProfilePage: React.FC = () => {
 
   const [errors, setErrors] = useState<Partial<ProfileState>>({});
 
-  // Валидация формы
   const validateForm = () => {
     const newErrors: Partial<ProfileState> = {};
 
@@ -32,17 +31,14 @@ export const EditProfilePage: React.FC = () => {
       newErrors.lastName = 'Фамилия должна содержать от 2 до 32 символов.';
     }
 
-    if (!/^\+\d{12}$/.test(profile.phone)) {
-      newErrors.phone = 'Номер телефона должен начинаться с "+" и содержать 12 цифр.';
+    if (!/^\d{12}$/.test(profile.phone)) {
+      newErrors.phone = 'Номер телефона должен содержать 12 цифр.';
     }
 
     setErrors(newErrors);
-
-    // Если ошибок нет, возвращаем true
     return Object.keys(newErrors).length === 0;
   };
 
-  // Обработчик сохранения
   const handleSave = () => {
     if (validateForm()) {
       console.log('Данные сохранены:', profile);
@@ -56,34 +52,42 @@ export const EditProfilePage: React.FC = () => {
 
       <h1>Редактировать</h1>
 
+    <div className="form-group">
       <AvatarUploader onUpload={(file) => console.log('Загружен аватар:', file)} />
+      </div>
 
-      <InputField
-        label="Имя"
-        value={profile.firstName}
-        onChange={(value) => setProfile({ ...profile, firstName: value })}
-        placeholder="Введите имя"
-        maxLength={20}
-        minLength={2}
-        error={errors.firstName}
-      />
+      <div className="form-group">
+        <InputField
+          label="Имя"
+          value={profile.firstName}
+          onChange={(value) => setProfile({ ...profile, firstName: value })}
+          placeholder="Введите имя"
+          maxLength={20}
+          minLength={2}
+          error={errors.firstName}
+        />
+      </div>
 
-      <InputField
-        label="Фамилия"
-        value={profile.lastName}
-        onChange={(value) => setProfile({ ...profile, lastName: value })}
-        placeholder="Введите фамилию"
-        maxLength={32}
-        minLength={2}
-        error={errors.lastName}
-      />
+      <div className="form-group">
+        <InputField
+          label="Фамилия"
+          value={profile.lastName}
+          onChange={(value) => setProfile({ ...profile, lastName: value })}
+          placeholder="Введите фамилию"
+          maxLength={32}
+          minLength={2}
+          error={errors.lastName}
+        />
+      </div>
 
-      <PhoneField
-        label="Телефон"
-        value={profile.phone}
-        onChange={(value) => setProfile({ ...profile, phone: value })}
-        error={errors.phone}
-      />
+      <div className="form-group">
+        <PhoneField
+          label="Телефон"
+          value={profile.phone}
+          onChange={(value) => setProfile({ ...profile, phone: value })}
+          error={errors.phone}
+        />
+      </div>
 
       <button className="save-button" onClick={handleSave}>
         Сохранить
