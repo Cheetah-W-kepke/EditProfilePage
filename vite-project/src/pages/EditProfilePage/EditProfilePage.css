@@ -4,7 +4,11 @@
   padding: 20px;
   color: #A53D3F;
   font-family: Arial, sans-serif;
+  /* font-family: 'Open Sans' Ы*/
 }
+
+
+
 
 
 h1 {
@@ -53,10 +57,12 @@ input:focus {
   color: white;
   background-color: #A53D3F;
   border: none;
-  border-radius: 30px;
+  border-radius: 60px;
   cursor: pointer;
   margin-top: 20px;
 }
+
+
 
 .save-button:hover {
   background-color: #fa1d19;

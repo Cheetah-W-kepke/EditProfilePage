@@ -51,6 +51,7 @@ export const EditProfilePage: React.FC = () => {
       <BackButton onClick={() => console.log('Назад')} />
 
       <h1>Редактировать</h1>
+      
 
     <div className="form-group">
       <AvatarUploader onUpload={(file) => console.log('Загружен аватар:', file)} />
