@@ -22,22 +22,31 @@ export const EditProfilePage: React.FC = () => {
 
   const validateForm = () => {
     const newErrors: Partial<ProfileState> = {};
-
+  
+    // Проверка имени
     if (profile.firstName.length < 2 || profile.firstName.length > 20) {
       newErrors.firstName = 'Имя должно содержать от 2 до 20 символов.';
     }
-
+  
+    // Проверка фамилии
     if (profile.lastName.length < 2 || profile.lastName.length > 32) {
       newErrors.lastName = 'Фамилия должна содержать от 2 до 32 символов.';
     }
-
-    if (!/^\d{12}$/.test(profile.phone)) {
-      newErrors.phone = 'Номер телефона должен содержать 12 цифр.';
+  
+    // Проверка номера телефона
+    const phoneDigitsOnly = profile.phone.replace(/[^\d]/g, ''); // Убираем всё, кроме цифр
+    const hasPlus = profile.phone.startsWith('+'); // Проверяем, что номер начинается с "+"
+    
+    if (hasPlus || phoneDigitsOnly.length < 11 || phoneDigitsOnly.length > 15) {
+      newErrors.phone = 'Номер телефона должен содержать от 11 до 12 цифр.';
     }
-
+  
     setErrors(newErrors);
+  
     return Object.keys(newErrors).length === 0;
   };
+  
+  
 
   const handleSave = () => {
     if (validateForm()) {

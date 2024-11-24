@@ -1,64 +1,74 @@
-.input-field {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 16px;
-    position: relative;
-  }
-  .input-icon {
-    position: absolute;
-    top: 50%;
-    left: 10px;
-    transform: translateY(-50%);
-  }
-  input {
-    padding: 8px 8px 8px 32px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 16px;
-  }
-  input::placeholder {
-    color: #a9a9a9;
-  }
-  .error-message {
-    color: red;
-    font-size: 12px;
-    margin-top: 4px;
-  }
+/* Общие стили для всех полей */
+.input-field,
+.phone-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+  position: relative;
+}
 
-  .phone-field {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 16px;
-    position: relative;
-  }
+/* Единые стили для всех input */
+input {
+  width: 100%; /* Занимает всю ширину контейнера */
+  height: 48px;
+  max-width: 600px; /* Максимальная ширина для всех полей */
+  padding: 8px 12px; /* Отступы внутри поля */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  box-sizing: border-box;
+  background: #FAFAFA;
 
-  .phone-field-error {
-    font-size: 12px;
-    color: red;
-    margin-top: 4px;
-  }
+}
 
-  .phone-field-input-error {
-    border-color: red;
-  }
+input::placeholder {
+  color: #a9a9a9;
+}
 
-  .phone-field-icon {
-    position: absolute;
-    left: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 18px;
-    color: #999;
-  }
+/* Стили для ошибок */
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 4px;
+}
 
-  .phone-field-input {
-    padding: 8px 12px 8px 36px; /* Учитываем место под иконку */
-   
-  }
+/* Стили для иконок внутри полей */
+.input-icon,
+.phone-field-icon {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center; /* Центрирование внутри контейнера */
+  justify-content: center; /* Если нужно центрировать внутри */
+}
 
-  .phone-field-container {
-    position: relative;
-  }
+
+.phone-field-container {
+  position: relative;
+}
+
+/* Дополнительные стили для полей телефона */
+.phone-field-input {
+  /* padding-left: 36px; Учитываем место под иконку
+   */
+    height: 48px; /* Высота поля */
+    line-height: 40px; /* Соответствие высоты строки высоте поля */
+    padding: 0 8px 0 36px; /* Внутренние отступы: оставляем место для иконки */
+    box-sizing: border-box; /* Учитываем padding и border в общей высоте */
+    font-size: 14px; /* Размер шрифта */
+    display: block; /* Убираем влияние строки */
+    vertical-align: middle; /* Для дополнительного контроля */
+    background: #FAFAFA;
+
   
-  
-  
+}
+
+/* Выравнивание метки (лейбл) */
+label {
+  font-size: 14px;
+  color: #A53D3F;
+  margin-bottom: 8px;
+  font-weight: 400; /* Сбрасываем жирность для единообразия */
+}
